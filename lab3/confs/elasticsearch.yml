@@ -1,0 +1,6 @@
+cluster.name: it366-elk
+node.name: node-1
+path.data: /var/lib/elasticsearch
+path.logs: /var/log/elasticsearch
+network.host: 127.0.0.1
+http.port: 9200
