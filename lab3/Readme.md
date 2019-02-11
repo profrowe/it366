@@ -21,7 +21,7 @@ sudo systemctl stop logstash
 ```bash
 sudo filebeat modules install elasticsearch logstash kibana system
 sudo metricbeat modules install elasticsearch logstash kibana
-cd /usr/share
+cd /usr/share/elasticsearch
 sudo bin/elasticsearch-plugin install ingest-geoip
 sudo bin/elasticsearch-plugin install ingest-user-agent
 ```
