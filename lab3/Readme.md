@@ -30,8 +30,18 @@ sudo bin/elasticsearch-plugin install ingest-user-agent
 
 config examples as found in confs/ folder.
 
+#### Bring the stack online
+```bash
+sudo systemctl start elasticsearch
+sudo systemctl start logstash
+sudo systemctl start kibana
+```
 
-#### Install dashboards:
+#### Test Elasticsearch (should be green)
+```curl -X GET "localhost:9200/_cluster/health"```
+
+
+#### Install dashboards
 ```bash
 filebeat setup --template -E output.logstash.enabled=false -E output.elasticsearch.enabled=false -E 'output.elasticsearch.hosts=["localhost:9200"]'
 metricbeat setup --template -E output.logstash.enabled=false -E output.elasticsearch.enabled=false -E 'output.elasticsearch.hosts=["localhost:9200"]'
@@ -41,11 +51,8 @@ metricbeat setup --dashboards
 auditbeat setup --dashboards
 ```
 
-#### Bring it all online
+#### Bring beats online
 ```bash
-sudo systemctl start elasticsearch
-sudo systemctl start logstash
-sudo systemctl start kibana
 sudo systemctl start filebeat
 sudo systemctl start metricbeat
 sudo systemctl start logstash
