@@ -1,0 +1,27 @@
+metricbeat.modules:
+- module: system
+  metricsets: ["diskio", "filesystem", "fsstat"]
+  diskio.include_devices: ["sda", "sda1"]
+  filesystem.ignore_types: [nfs, smbfs, autofs]
+
+metricbeat.config.modules:
+  path: ${path.config}/modules.d/*.yml
+  reload.enabled: false
+
+setup.template.settings:
+  index.number_of_shards: 1
+  index.codec: best_compression
+name:
+  elk-01
+tags: ["elk-stack"]
+
+setup.kibana:
+  #host: "localhost:5601"
+
+output.logstash:
+  hosts: ["localhost:5044"]
+
+processors:
+  - add_host_metadata: ~
+  - add_cloud_metadata: ~
+
