@@ -45,9 +45,9 @@ curl -X GET "localhost:9200/_cluster/health?pretty=true"
 
 #### Install templates & dashboards
 ```bash
-sudo filebeat setup --template -E output.logstash.enabled=false -E output.elasticsearch.enabled=false -E 'output.elasticsearch.hosts=["localhost:9200"]'
-sudo metricbeat setup --template -E output.logstash.enabled=false -E output.elasticsearch.enabled=false -E 'output.elasticsearch.hosts=["localhost:9200"]'
-sudo auditbeat setup --template -E output.logstash.enabled=false -E output.elasticsearch.enabled=false -E 'output.elasticsearch.hosts=["localhost:9200"]'
+sudo filebeat setup --template -E output.logstash.enabled=false -E output.elasticsearch.enabled=true -E 'output.elasticsearch.hosts=["localhost:9200"]'
+sudo metricbeat setup --template -E output.logstash.enabled=false -E output.elasticsearch.enabled=true -E 'output.elasticsearch.hosts=["localhost:9200"]'
+sudo auditbeat setup --template -E output.logstash.enabled=false -E output.elasticsearch.enabled=true -E 'output.elasticsearch.hosts=["localhost:9200"]'
 sudo filebeat setup --dashboards
 sudo metricbeat setup --dashboards
 sudo auditbeat setup --dashboards
