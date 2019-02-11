@@ -50,8 +50,7 @@ sudo systemctl start filebeat
 sudo systemctl start metricbeat
 sudo systemctl start logstash
 ```
-Test for errors with journalctl -u [servicename] -f
-tail -f /var/log/[servicename]/[logfile]
+Test for errors with `journalctl -u [servicename] -f` and `tail -f /var/log/[servicename]/[logfile]`
 
 #### Set services to autostart
 ```bash
