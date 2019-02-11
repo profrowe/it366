@@ -38,10 +38,11 @@ sudo systemctl start kibana
 ```
 
 #### Test Elasticsearch (should be green)
-```curl -X GET "localhost:9200/_cluster/health"```
+```curl -X GET "localhost:9200/_cluster/health"
+```
 
 
-#### Install dashboards
+#### Install templates & dashboards
 ```bash
 filebeat setup --template -E output.logstash.enabled=false -E output.elasticsearch.enabled=false -E 'output.elasticsearch.hosts=["localhost:9200"]'
 metricbeat setup --template -E output.logstash.enabled=false -E output.elasticsearch.enabled=false -E 'output.elasticsearch.hosts=["localhost:9200"]'
@@ -66,4 +67,5 @@ sudo systemctl enable logstash
 sudo systemctl enable kibana
 sudo systemctl enable filebeat
 sudo systemctl enable metricbeat
-sudo systemctl enable logstash```
+sudo systemctl enable logstash
+```
