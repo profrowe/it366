@@ -1,0 +1,28 @@
+filebeat.inputs:
+- type: log
+  enabled: false
+  paths:
+    - /var/log/*.log
+
+filebeat.config.modules:
+  path: ${path.config}/modules.d/*.yml
+  reload.enabled: false
+
+setup.template.settings:
+  index.number_of_shards: 3
+
+name:
+  elk-01
+
+tags: ["my-elk-stack"]
+
+setup.kibana:
+  host: "localhost:5601"
+
+output.logstash:
+  hosts: ["localhost:5044"]
+
+processors:
+  - add_host_metadata: ~
+  - add_cloud_metadata: ~
+
