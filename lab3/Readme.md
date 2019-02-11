@@ -38,7 +38,8 @@ sudo systemctl start kibana
 ```
 
 #### Test Elasticsearch (should be green)
-```curl -X GET "localhost:9200/_cluster/health"
+```bash
+curl -X GET "localhost:9200/_cluster/health"
 ```
 
 
