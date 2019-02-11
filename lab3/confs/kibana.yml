@@ -1,0 +1,4 @@
+server.port: 5601
+server.host: "0.0.0.0"
+server.name: "it366lab3.yourdomain.com"
+elasticsearch.hosts: ["http://localhost:9200"]
