@@ -14,13 +14,13 @@ sudo systemctl stop logstash
 sudo systemctl stop kibana
 sudo systemctl stop filebeat
 sudo systemctl stop metricbeat
-sudo systemctl stop logstash
+sudo systemctl stop auditbeat
 ```
 
 #### Install Modules/Plugins
 ```bash
-sudo filebeat modules install elasticsearch logstash kibana system
-sudo metricbeat modules install elasticsearch logstash kibana
+sudo filebeat modules enable elasticsearch logstash kibana system
+sudo metricbeat modules enable elasticsearch logstash kibana
 cd /usr/share/elasticsearch
 sudo bin/elasticsearch-plugin install ingest-geoip
 sudo bin/elasticsearch-plugin install ingest-user-agent
