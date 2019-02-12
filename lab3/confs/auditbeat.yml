@@ -22,6 +22,7 @@ auditbeat.modules:
   - /usr/sbin
   - /etc
 
+# REMOVE BELOW (Lines 26-31) if using Auditbeat 6.5.4.  System module is only compatible with 6.6 onwards.
 - module: system
   datasets:
     - host    # General host information, e.g. uptime, IPs
